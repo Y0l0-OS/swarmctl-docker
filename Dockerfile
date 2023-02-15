@@ -14,8 +14,12 @@ RUN apk --no-cache --no-progress add \
 
 #RUN go get -u github.com/docker/swarmkit/...
 RUN go install github.com/docker/swarmkit@latest
-FROM base-image as maker
+RUN mkdir -p /go/src/github.com/docker/
+RUN git clone https://github.com/moby/swarmkit.git /go/src/github.com/docker/swarmkit
+RUN cd /go/src/github.com/docker/swarmkit
+RUN make binaries
 
+FROM base-image as maker
 #RUN go get -u github.com/alecthomas/gometalinter
 RUN go install github.com/alecthomas/gometalinter@latest
 
