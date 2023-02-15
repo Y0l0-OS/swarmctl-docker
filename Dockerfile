@@ -13,7 +13,7 @@ RUN apk --no-cache --no-progress add \
     tar
 
 #RUN go get -u github.com/docker/swarmkit/...
-RUN go install github.com/docker/swarmkit@latest
+#RUN go install github.com/docker/swarmkit@latest
 RUN mkdir -p /go/src/github.com/docker/
 RUN git clone https://github.com/moby/swarmkit.git /go/src/github.com/docker/swarmkit
 RUN cd /go/src/github.com/docker/swarmkit
