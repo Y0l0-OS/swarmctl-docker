@@ -29,7 +29,7 @@ FROM maker as builder
 RUN mkdir /fakeroot && cp /usr/local/bin/swarmctl /fakeroot/swarmctl
 
 FROM alpine AS base
-RUN /bin/sh -c mkdir -p /var/run
+RUN /bin/sh -c "mkdir -p /var/run"
 COPY --from=builder /fakeroot/ /
 VOLUME ["/tmp"]
 ENTRYPOINT ["./swarmctl" "task" "rm"]
