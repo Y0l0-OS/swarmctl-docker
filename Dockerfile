@@ -1,4 +1,4 @@
-# Let's build traefik for linux-amd64
+ # Let's build traefik for linux-amd64
 FROM golang:alpine AS base-image
 
 # Package dependencies
@@ -12,11 +12,12 @@ RUN apk --no-cache --no-progress add \
     docker \
     tar
 
-RUN go get -u github.com/docker/swarmkit/...
-
+#RUN go get -u github.com/docker/swarmkit/...
+RUN go install github.com/docker/swarmkit@latest
 FROM base-image as maker
 
-RUN go get -u github.com/alecthomas/gometalinter
+#RUN go get -u github.com/alecthomas/gometalinter
+RUN go install github.com/alecthomas/gometalinter@latest
 
 ARG license_server_url
 ENV PROJECT_WORKING_DIR=/go/src/github.com/docker/swarmkit
