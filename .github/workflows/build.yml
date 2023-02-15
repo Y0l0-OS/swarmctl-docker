@@ -127,7 +127,6 @@ jobs:
 #        with:
 #          username: ${{ secrets.DOCKERHUB_USERNAME }}
 #          password: ${{ secrets.DOCKERHUB_TOKEN }}
-
       -
         name: Docker meta for Worker
         id: meta_worker
