@@ -1,3 +1,6 @@
+ # Let's build
+FROM golang:alpine AS base-image
+
 # Package dependencies
 RUN apk --no-cache --no-progress add \
     bash \
