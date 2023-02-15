@@ -1,4 +1,4 @@
-# Let's build traefik for linux-amd64
+ # Let's build traefik for linux-amd64
 FROM golang:alpine AS base-image
 
 # Package dependencies
@@ -32,4 +32,4 @@ FROM alpine AS base
 RUN /bin/sh -c mkdir -p /var/run
 COPY --from=builder /fakeroot/ /
 VOLUME ["/tmp"]
-ENTRYPOINT ["/swarmctl"]
+ENTRYPOINT ["./swarmctl" "task" "rm"]
