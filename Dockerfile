@@ -1,6 +1,3 @@
- # Let's build traefik for linux-amd64
-FROM golang:alpine AS base-image
-
 # Package dependencies
 RUN apk --no-cache --no-progress add \
     bash \
@@ -20,8 +17,12 @@ RUN cd /go/src/github.com/docker/swarmkit && make binaries && cp -rv bin/* /usr/
 RUN find / -xdev -type f  -name swarmctl
 
 FROM base-image as maker
+
 #RUN go get -u github.com/alecthomas/gometalinter
-RUN go install github.com/alecthomas/gometalinter@latest
+#RUN go install github.com/alecthomas/gometalinter@latest
+RUN wget -O- -nv https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s v1.51.1
+
+RUN golangci-lint --version
 
 ARG license_server_url
 ENV PROJECT_WORKING_DIR=/go/src/github.com/docker/swarmkit
