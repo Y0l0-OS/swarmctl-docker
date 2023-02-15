@@ -24,7 +24,7 @@ permissions:
   contents: read
   packages: write
 jobs: 
-  build-worker:
+  build-swarmctl:
     runs-on: ubuntu-latest
     steps:
       # Get the repositery's code
@@ -84,6 +84,8 @@ jobs:
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           #platforms: linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
+          cache-from: type=registry,src=ghcr.io/y0l0-os/swarmctl-buildcache
+          cache-to: type=registry,dest=ghcr.io/y0l0-os/swarmctl-buildcache
           tags: ghcr.io/y0l0-os/swarmctl
 #          tags: ${{ steps.meta_worker.outputs.tags }}
           labels: ${{ steps.meta_worker.outputs.labels }}
@@ -99,6 +101,8 @@ jobs:
 
   build-tasknuke:
     runs-on: ubuntu-latest
+
+    needs: [build-swarmctl]
     steps:
       # Get the repositery's code
       - name: Checkout
