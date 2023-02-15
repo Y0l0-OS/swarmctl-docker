@@ -63,8 +63,8 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
-            ghcr.io/y0o0-os/swarmctl
-#            y0o0-os/swarmctl
+            ghcr.io/y0l0-os/swarmctl
+#            y0l0-os/swarmctl
 
           # generate Docker tags based on the following events/attributes
           tags: |
@@ -84,7 +84,7 @@ jobs:
           #platforms: linux/amd64,linux/arm64,linux/arm/v7
           platforms: linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/y0o0-os/swarmctl
+          tags: ghcr.io/y0l0-os/swarmctl
 #          tags: ${{ steps.meta_worker.outputs.tags }}
           labels: ${{ steps.meta_worker.outputs.labels }}
 #      - name: Docker Hub Description
@@ -93,7 +93,7 @@ jobs:
 #        with:
 #          username: ${{ secrets.DOCKERHUB_USERNAME }}
 #          password: ${{ secrets.DOCKERHUB_PASSWORD }}
-#          repository: y0o0-os/swarmctl
+#          repository: y0l0-os/swarmctl
 #          readme-filepath: ./README.md
 #          short-description: "Worker image for ClusterPlex"
 
@@ -135,8 +135,8 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
-            ghcr.io/y0o0-os/tasknuke
-#            y0o0-os/tasknuke
+            ghcr.io/y0l0-os/tasknuke
+#            y0l0-os/tasknuke
 
           # generate Docker tags based on the following events/attributes
           tags: |
@@ -156,7 +156,7 @@ jobs:
           #platforms: linux/amd64,linux/arm64,linux/arm/v7
           platforms: linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/y0o0-os/tasknuke
+          tags: ghcr.io/y0l0-os/tasknuke
 #          tags: ${{ steps.meta_worker.outputs.tags }}
           labels: ${{ steps.meta_worker.outputs.labels }}
 #      - name: Docker Hub Description
@@ -165,6 +165,6 @@ jobs:
 #        with:
 #          username: ${{ secrets.DOCKERHUB_USERNAME }}
 #          password: ${{ secrets.DOCKERHUB_PASSWORD }}
-#          repository: y0o0-os/tasknuke
+#          repository: y0l0-os/tasknuke
 #          readme-filepath: ./README.md
 #          short-description: "Worker image for ClusterPlex"
