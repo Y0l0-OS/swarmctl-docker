@@ -84,8 +84,8 @@ jobs:
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           #platforms: linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          cache-from: type=registry,src=ghcr.io/y0l0-os/swarmctl-buildcache
-          cache-to: type=registry,dest=ghcr.io/y0l0-os/swarmctl-buildcache
+          cache-from: type=registry,ref=ghcr.io/y0l0-os/swarmctl-buildcache
+          cache-to: type=registry,ref=ghcr.io/y0l0-os/swarmctl-buildcache
           tags: ghcr.io/y0l0-os/swarmctl
 #          tags: ${{ steps.meta_worker.outputs.tags }}
           labels: ${{ steps.meta_worker.outputs.labels }}
